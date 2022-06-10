@@ -11,7 +11,7 @@ export interface WindowProps {
   y?: number | string;
 
   /** @property The window width in pixel. */
-  width?: number | string;
+  width?: number;
 
   /** @property The window height in pixel. */
   height?: number | string;
@@ -70,10 +70,10 @@ export default class Window {
     // parsing the shortcut coordinates like "center", "left", "right"
 
     this.id = props.id;
-    this.x = props.x ? props.x : 0;
-    this.y = props.y ? props.y : 0;
     this.width = props.width ? props.width : 0;
     this.height = props.height ? props.height : 0;
+    this.x = props.x ? this.parseCoord("x", props.x) : 0;
+    this.y = props.y ? this.parseCoord("y", props.y) : 0;
     this.backgroundColor = props.backgroundColor
       ? props.backgroundColor
       : "black";
@@ -115,8 +115,8 @@ export default class Window {
 
     $(`#${this.id}`).css({
       position: "absolute",
-      left: initial.x,
-      top: initial.y,
+      left: this.parseCoord("x", initial.x),
+      top: this.parseCoord("y", initial.y),
       width: initial.width,
       height: initial.height,
       backgroundColor: initial.backgroundColor,
@@ -129,8 +129,8 @@ export default class Window {
     $(`#${this.id}`).animate(
       {
         position: "absolute",
-        left: final.x,
-        top: final.y,
+        left: this.parseCoord("x", final.x),
+        top: this.parseCoord("y", final.y),
         width: final.width,
         height: final.height,
         backgroundColor: final.backgroundColor,
@@ -202,5 +202,46 @@ export default class Window {
     this.borderSize = updatedValues.borderSize;
     this.borderColor = updatedValues.borderColor;
     this.borderRadius = updatedValues.borderRadius;
+  }
+
+  parseCoord(coordinate: string, value: number | string) {
+    switch (coordinate) {
+      case "x":
+        switch (value) {
+          case "left":
+            return 20;
+
+          case "right":
+            //@ts-ignore
+            return $("#app").width() - this.width - 20;
+
+          case "center":
+            //@ts-ignore
+            return $("#app").width() / 2 - this.width / 2;
+
+          default:
+            return value;
+        }
+
+      case "y":
+        switch (value) {
+          case "top":
+            return 20;
+
+          case "bottom":
+            //@ts-ignore
+            return $("#app").height() - this.height - 40;
+
+          case "center":
+            //@ts-ignore
+            return $("#app").height() / 2 - this.height / 2;
+
+          default:
+            return value;
+        }
+
+      default:
+        return value;
+    }
   }
 }

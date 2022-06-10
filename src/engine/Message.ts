@@ -24,7 +24,7 @@ export default class Message extends Window {
    */
   constructor(props: MessageProps) {
     super({
-      x: 300,
+      x: "center",
       y: 350,
       width: 650,
       height: 250,
