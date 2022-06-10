@@ -22,15 +22,16 @@ const attore = new Actor({
   id: "lana",
   face: "lana.png",
   opacity: 0,
-  x: 480,
-  y: 200,
+  x: "center",
+  y: "center",
   borderColor: "aquamarine",
 }).fadeImage({}, {}, 0);
 
 const messaggio = new Message({
   id: "message",
   height: 200,
-  y: 500,
+  x: "center",
+  y: "bottom",
 });
 
 const musica = CreateMusic("melody.wav");
@@ -165,7 +166,7 @@ scena
   .addText(messaggio, "Click again on me to move my window.")
   .pressButton(attore)
   .clearText(messaggio)
-  .animate(attore, {}, { x: 30, y: 60 }, 1200)
+  .animate(attore, {}, { x: "left", y: "top" }, 1200)
   .wait(1400)
   .addText(messaggio, "Nice, all went good without a crash.", {
     mustPress: true,
