@@ -38,6 +38,10 @@ function createWindow() {
   ipcMain.handle("closeWindow", () => {
     mainWindow.close();
   });
+
+  ipcMain.on("getWindowProps-request", (event) => {
+    event.returnValue = mainWindow.getContentBounds();
+  });
 }
 
 // This method will be called when Electron has finished

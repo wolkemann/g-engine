@@ -6,7 +6,6 @@
 
 html {
   user-select: none;
-  overflow: hidden;
 }
 
 body {
@@ -15,8 +14,4 @@ body {
 }
 
 #app {
-  margin: auto;
-  position: relative;
-  width: 1000px;
-  height: 750px;
 }

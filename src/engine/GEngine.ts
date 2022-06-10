@@ -1,6 +1,19 @@
 import $ from "jquery";
 import { Howl } from "howler";
+/**
+ * Automatically set the game window content equal to the width and height specified in electron.
+ */
+export function setRendererSize() {
+  //@ts-ignore
+  const { width, height } = window.electronAPI.getWindowProps();
 
+  $("#app").css({
+    margin: "auto",
+    position: "relative",
+    width: width,
+    height: height,
+  });
+}
 /**
  * `Createmusic` creates a music using Howler.js
  * @param track

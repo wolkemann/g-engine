@@ -4,10 +4,9 @@ import "./engine/css/Message.css";
 import Actor from "./engine/Actor";
 import Scenario from "./engine/Scenario";
 import Message from "./engine/Message";
-import { CreateMusic, Sequence } from "./engine/GEngine";
+import { CreateMusic, Sequence, setRendererSize } from "./engine/GEngine";
 
-//@ts-ignore
-window.electronAPI.gg();
+setRendererSize();
 
 const scenario = new Scenario({
   id: "sfondo",
