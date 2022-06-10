@@ -1,0 +1,24 @@
+.message {
+  display: flex;
+  font-family: "Courier New", Courier, monospace;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.message-content {
+  flex-grow: 1;
+}
+
+.message-continue {
+  align-self: flex-end;
+  animation: message 0.5s ease-out 0s infinite alternate;
+}
+
+@keyframes message {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
