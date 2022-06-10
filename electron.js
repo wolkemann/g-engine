@@ -24,12 +24,13 @@ function createWindow() {
     },
   });
 
+  mainWindow.removeMenu();
+
   // Open the DevTools.
   if (isDev) {
     mainWindow.loadURL("http://localhost:3000");
     mainWindow.webContents.openDevTools({ mode: "detach" });
   } else {
-    // mainWindow.removeMenu();
     mainWindow.webContents.loadURL(
       `file://${path.join(__dirname, "/build/index.html")}`
     );
