@@ -141,7 +141,7 @@ export default class Window {
       },
       time,
       () => {
-        this.updateWindowprops(final);
+        this.updateWindowProps(final);
       }
     );
 
@@ -191,8 +191,11 @@ export default class Window {
 
     return this;
   }
-
-  updateWindowprops(updatedValues: any) {
+  /**
+   * Updates the element values when an animation is finished.
+   * @param updatedValues
+   */
+  updateWindowProps(updatedValues: any) {
     this.x = updatedValues.x;
     this.y = updatedValues.y;
     this.width = updatedValues.width;
@@ -203,7 +206,12 @@ export default class Window {
     this.borderColor = updatedValues.borderColor;
     this.borderRadius = updatedValues.borderRadius;
   }
-
+  /**
+   * Parses a coordinate (X or Y) to check if you have used a shortcut.
+   * For example "center" will automatically calculate the horizontal or vertical center of the selected element.
+   * @param coordinate a string to indentify either "x" or "y"
+   * @param value the value of the coordinate
+   */
   parseCoord(coordinate: string, value: number | string) {
     switch (coordinate) {
       case "x":
