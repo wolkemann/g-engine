@@ -238,7 +238,7 @@ export default class Window {
 
           case "bottom":
             //@ts-ignore
-            return $("#app").height() - this.height - 40;
+            return $("#app").height() - this.height - 10;
 
           case "center":
             //@ts-ignore

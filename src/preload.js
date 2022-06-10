@@ -1,11 +1,10 @@
-const { contextBridge, ipcRenderer, webFrame } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
   closeWindow: () => {
     ipcRenderer.invoke("closeWindow");
   },
-  gg: () => {
-    console.log(webFrame.getZoomLevel());
-    console.log(webFrame.getZoomFactor());
+  getWindowProps: () => {
+    return ipcRenderer.sendSync("getWindowProps-request");
   },
 });

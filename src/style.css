@@ -6,17 +6,9 @@
 
 html {
   user-select: none;
-  overflow: hidden;
 }
 
 body {
   display: flex;
   height: 100vh;
-}
-
-#app {
-  margin: auto;
-  position: relative;
-  width: 1000px;
-  height: 750px;
 }
