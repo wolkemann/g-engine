@@ -24,8 +24,6 @@ function createWindow() {
     },
   });
 
-  mainWindow.removeMenu();
-
   // Open the DevTools.
   if (isDev) {
     mainWindow.loadURL("http://localhost:3000");
@@ -34,6 +32,7 @@ function createWindow() {
     mainWindow.webContents.loadURL(
       `file://${path.join(__dirname, "/build/index.html")}`
     );
+    mainWindow.removeMenu();
   }
 
   ipcMain.handle("closeWindow", () => {
