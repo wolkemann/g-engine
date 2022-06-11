@@ -2,10 +2,10 @@
   "name": "g-engine",
   "main": "electron.js",
   "author": "Wolkemann",
-  "description": "Boilerplate Electron + Vite + Svelte",
+  "description": "G-Engine sample project",
   "license": "MIT",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.5.0",
   "scripts": {
     "start": "npm run build && npm run electron:start",
     "dev": " npm run build && concurrently -k \"vite\" \"npm run electron:dev\"",
@@ -24,6 +24,7 @@
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "@types/howler": "^2.2.7",
     "@types/jquery": "^3.5.14",
+    "@types/three": "^0.141.0",
     "concurrently": "^7.2.1",
     "cross-env": "^7.0.3",
     "electron": "19.0.3",
@@ -33,7 +34,8 @@
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "howler": "^2.2.3",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "three": "^0.141.0"
   },
   "config": {
     "forge": "./forge.config.js"

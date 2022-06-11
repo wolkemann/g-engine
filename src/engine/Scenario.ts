@@ -8,7 +8,10 @@ interface ScenarioProps extends WindowProps {
    *
    * */
   image: string;
-  /** @property if true the picture will cover the entire screen */
+  /**
+   * @property if true the picture will cover the entire screen
+   *
+   * */
   fullscreen?: boolean;
 }
 

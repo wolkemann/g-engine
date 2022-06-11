@@ -38,7 +38,6 @@ export function CreateSound(track: string, loop?: boolean) {
     html5: true,
   });
 }
-
 export class Sequence {
   eventList: Array<any>;
   eventsPlayed: number;
@@ -282,6 +281,20 @@ export class Sequence {
     return this;
   }
   /**
+   * Renders the 3d Scene stored in your ThreeD element.
+   * @param element the ThreeD element where do you want to render the 3d canvas
+   * @example sequence.renderCanvas(example3dScene)
+   */
+  renderCanvas(element: object) {
+    this.eventList.push({
+      element: element,
+      method: "renderCanvas",
+      args: [],
+    });
+
+    return this;
+  }
+  /**
    * @method `run` plays the events inside the array `eventList`. Use it always after you have inserted your events.
    */
   run() {
@@ -318,6 +331,10 @@ export class Sequence {
         window.electronAPI.closeWindow();
         break;
 
+      case "renderCanvas":
+        element.renderCanvas();
+        break;
+
       default:
         element[method](...args);
         break;
@@ -351,5 +368,4 @@ export class Sequence {
     }
   }
 }
-
 export class Story {}

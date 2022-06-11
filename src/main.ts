@@ -5,6 +5,7 @@ import Actor from "./engine/Actor";
 import Scenario from "./engine/Scenario";
 import Message from "./engine/Message";
 import { CreateMusic, Sequence, setRendererSize } from "./engine/GEngine";
+import ThreeD from "./engine/ThreeD";
 
 setRendererSize();
 
@@ -16,6 +17,13 @@ const scenario = new Scenario({
 })
   .animateWindow({}, {}, 0)
   .fadeImage({}, {}, 0);
+
+const scena3d = new ThreeD({
+  id: "3d",
+  opacity: 1,
+  width: 0,
+  height: 0,
+}).animateWindow({}, {}, 0);
 
 const attore = new Actor({
   id: "lana",
@@ -38,8 +46,10 @@ const musica = CreateMusic("melody.wav");
 const scena = new Sequence();
 scena
   .wait(1000)
+  .animate(scena3d, {}, { width: 300, height: 300 }, 2000)
   .animate(messaggio, { opacity: 0 }, { opacity: 1 }, 2000)
   .wait(4000)
+  .renderCanvas(scena3d)
   .addText(messaggio, "... ", { mustPress: true })
   .playAudio(musica)
   .wait(10)
