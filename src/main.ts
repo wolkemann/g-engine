@@ -79,7 +79,6 @@ scena
   .pressButton(attore)
   .clearText(messaggio)
   .fade(attore, {}, { opacity: 0 }, 2000)
-  .fade(scena3d, { fadeColor: "pink" }, { maskWidth: 50 }, 2000)
   .wait(2500)
   .addText(messaggio, "Wow! That worked. ", { mustPress: true })
   .addText(messaggio, "It seems we have a wizard here, uh? ", {
