@@ -32,8 +32,13 @@ export default class Scenario extends Window {
       ...props,
       id: "scenario-" + props.id,
     });
+
     this.image = "../build/resources/backgrounds/" + props.image;
     this.fullscreen = props.fullscreen;
+    this.generateElement();
+  }
+  generateElement() {
+    this.generateWindow();
 
     if (this.fullscreen) {
       this.x = 0;

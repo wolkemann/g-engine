@@ -122,6 +122,21 @@ export class Sequence {
     return this;
   }
   /**
+   * Removes the selected Element as DOM Element. It will still exist as an Object,
+   * so you can recreate it with
+   * @param element the element you want to remove.
+   * @example sequence.removeElement(element)
+   */
+  removeElement(element: object) {
+    this.eventList.push({
+      element: element,
+      method: "removeElement",
+      args: [],
+    });
+
+    return this;
+  }
+  /**
    * Clears the text inside a Message element.
    * @param element the Message element you want to clear the text.
    * @example sequence.clearText(Message)

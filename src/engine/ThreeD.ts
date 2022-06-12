@@ -1,4 +1,5 @@
 import Window, { WindowProps } from "./Window";
+import $ from "jquery";
 import Example from "./3DScenes/Example";
 
 interface ThreeDProps extends WindowProps {
@@ -23,15 +24,18 @@ export default class ThreeD extends Window {
 
     this.canvasWidth = props.canvasWidth;
     this.canvasHeight = props.canvasHeight;
-
     this.scene = props.scene ? props.scene : Example;
 
+    this.generateElement();
+  }
+  generateElement() {
+    this.generateWindow();
     this.scene(`#${this.id}`, this.canvasWidth, this.canvasHeight);
   }
   /**
    * Renders the 3d Scene stored in this.scene.
    */
   renderCanvas() {
-    this.scene(`#${this.id}`, this.width, this.height);
+    this.scene(`#${this.id}`, this.canvasWidth, this.canvasHeight);
   }
 }
