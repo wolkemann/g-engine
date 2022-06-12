@@ -88,7 +88,7 @@ export class Sequence {
   /**
    * Generates the selected element as DOM element.
    * @param element the element you want to generate
-   * @example: sequence.generateElement(element)
+   * @example sequence.generateElement(element)
    */
   generateElement(element: object) {
     this.eventList.push({
@@ -176,7 +176,7 @@ export class Sequence {
   addText(
     element: object,
     text: string,
-    options?: { mustPress?: boolean; voice?: string }
+    options?: { mustPress?: boolean; clearText?: boolean; voice?: string }
   ) {
     this.eventList.push({
       element: element,
@@ -188,6 +188,14 @@ export class Sequence {
       this.eventList.push({
         element: element,
         method: "pressButton",
+      });
+    }
+
+    if (options?.clearText) {
+      this.eventList.push({
+        element: element,
+        method: "clearText",
+        args: [],
       });
     }
     return this;

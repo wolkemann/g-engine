@@ -18,14 +18,6 @@ const scenario = new Scenario({
   .animateWindow({}, {}, 0)
   .fadeImage({}, {}, 0);
 
-const scena3d = new ThreeD({
-  id: "3d",
-  width: 300,
-  height: 0,
-  canvasWidth: 300,
-  canvasHeight: 300,
-});
-
 const attore = new Actor({
   id: "lana",
   face: "lana.png",
@@ -47,23 +39,16 @@ const musica = CreateMusic("melody.wav");
 const scena = new Sequence();
 scena
   .wait(1000)
-  .animate(scena3d, {}, { height: 300 }, 2000)
   .animate(messaggio, { opacity: 0 }, { opacity: 1 }, 2000)
   .wait(4000)
-  .addText(messaggio, "... ", { mustPress: true })
-  .animate(scena3d, {}, { height: 10 }, 2000)
-  .wait(2000)
-  .removeElement(scena3d)
+  .addText(messaggio, "... ", { mustPress: true, clearText: true })
   .playAudio(musica)
   .wait(10)
   .fadeAudio(musica, [0, 0, 15000])
-  .clearText(messaggio)
   .wait(1500)
   .addText(messaggio, "... ... ... ")
   .wait(1500)
-  .addText(messaggio, " H-Hello?", { mustPress: true })
-  .clearText(messaggio)
-  .generateElement(scena3d)
+  .addText(messaggio, " H-Hello?", { mustPress: true, clearText: true })
   .addText(messaggio, " Did someone turned the lights off?", {
     mustPress: true,
   })
