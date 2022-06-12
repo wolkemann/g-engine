@@ -63,6 +63,7 @@ scena
   .wait(1500)
   .addText(messaggio, " H-Hello?", { mustPress: true })
   .clearText(messaggio)
+  .generateElement(scena3d)
   .addText(messaggio, " Did someone turned the lights off?", {
     mustPress: true,
   })

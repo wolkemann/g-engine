@@ -86,6 +86,35 @@ export class Sequence {
     return this;
   }
   /**
+   * Generates the selected element as DOM element.
+   * @param element the element you want to generate
+   * @example: sequence.generateElement(element)
+   */
+  generateElement(element: object) {
+    this.eventList.push({
+      element: element,
+      method: "generateElement",
+      args: [],
+    });
+
+    return this;
+  }
+  /**
+   * Removes the selected Element as DOM Element. It will still exist as an Object,
+   * so you can regenerate it with generateElement.
+   * @param element the element you want to remove.
+   * @example sequence.removeElement(element)
+   */
+  removeElement(element: object) {
+    this.eventList.push({
+      element: element,
+      method: "removeElement",
+      args: [],
+    });
+
+    return this;
+  }
+  /**
    * @method `animate` adds the "animateWindow" method inside the event array `eventList` for the selected element.
    * @param element the element you want to manipulate, i.e. an `Actor`, a `Message`, or a `Scenario`.
    * @param starting the starting values at which the animation will start.
@@ -117,21 +146,6 @@ export class Sequence {
       element: element,
       method: "fadeImage",
       args: [starting, finishing, time],
-    });
-
-    return this;
-  }
-  /**
-   * Removes the selected Element as DOM Element. It will still exist as an Object,
-   * so you can recreate it with createElement.
-   * @param element the element you want to remove.
-   * @example sequence.removeElement(element)
-   */
-  removeElement(element: object) {
-    this.eventList.push({
-      element: element,
-      method: "removeElement",
-      args: [],
     });
 
     return this;
