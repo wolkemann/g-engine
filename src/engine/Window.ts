@@ -82,11 +82,24 @@ export default class Window {
     this.borderColor = props.borderColor ? props.borderColor : "#CC0000";
     this.borderRadius = props.borderRadius ? props.borderRadius : 2;
 
+    return this;
+  }
+  /**
+   * Generates the basic DOM Element.
+   */
+  generateWindow() {
     $(`#app`).append(
       `<div id="${this.id}">
         <div id="${this.id}-mask"></div>
       </div>`
     );
+  }
+  /**
+   * Removes the selected Element as DOM Element. It will still exist as an Object,
+   * so you can recreate it with
+   */
+  removeElement() {
+    $(`#${this.id}`).remove();
 
     return this;
   }

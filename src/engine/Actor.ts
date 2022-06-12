@@ -31,6 +31,13 @@ export default class Actor extends Window {
 
     this.face = "../build/resources/faces/" + props.face;
 
+    this.generateElement();
+  }
+  /**
+   * Generates the Actor as DOM Element.
+   */
+  generateElement() {
+    this.generateWindow();
     $(`#${this.id}`).css({
       backgroundColor: this.borderColor,
       backgroundImage: `url(${this.face})`,

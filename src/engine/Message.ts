@@ -37,6 +37,13 @@ export default class Message extends Window {
     this.textLines = 0;
     this.finishedTyping = false;
 
+    this.generateElement();
+  }
+  /**
+   * Generates the Message as DOM Element.
+   */
+  generateElement() {
+    this.generateWindow();
     $(`#${this.id}`)
       .css({
         fontSize: this.textSize,
