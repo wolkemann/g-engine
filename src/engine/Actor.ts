@@ -33,6 +33,9 @@ export default class Actor extends Window {
 
     this.generateElement();
   }
+  /**
+   * Generates the Actor as DOM Element.
+   */
   generateElement() {
     this.generateWindow();
     $(`#${this.id}`).css({

@@ -123,7 +123,7 @@ export class Sequence {
   }
   /**
    * Removes the selected Element as DOM Element. It will still exist as an Object,
-   * so you can recreate it with
+   * so you can recreate it with createElement.
    * @param element the element you want to remove.
    * @example sequence.removeElement(element)
    */

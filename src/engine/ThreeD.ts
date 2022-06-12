@@ -1,5 +1,4 @@
 import Window, { WindowProps } from "./Window";
-import $ from "jquery";
 import Example from "./3DScenes/Example";
 
 interface ThreeDProps extends WindowProps {
@@ -28,6 +27,9 @@ export default class ThreeD extends Window {
 
     this.generateElement();
   }
+  /**
+   * Generates the ThreeD as DOM Element.
+   */
   generateElement() {
     this.generateWindow();
     this.scene(`#${this.id}`, this.canvasWidth, this.canvasHeight);

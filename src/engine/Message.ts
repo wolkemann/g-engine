@@ -39,6 +39,9 @@ export default class Message extends Window {
 
     this.generateElement();
   }
+  /**
+   * Generates the Message as DOM Element.
+   */
   generateElement() {
     this.generateWindow();
     $(`#${this.id}`)

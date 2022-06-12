@@ -84,12 +84,24 @@ export default class Window {
 
     return this;
   }
+  /**
+   * Generates the basic DOM Element.
+   */
   generateWindow() {
     $(`#app`).append(
       `<div id="${this.id}">
         <div id="${this.id}-mask"></div>
       </div>`
     );
+  }
+  /**
+   * Removes the selected Element as DOM Element. It will still exist as an Object,
+   * so you can recreate it with
+   */
+  removeElement() {
+    $(`#${this.id}`).remove();
+
+    return this;
   }
   /**
    * `animateWindow` creates animation for the Window.
@@ -206,15 +218,6 @@ export default class Window {
     this.borderSize = updatedValues.borderSize;
     this.borderColor = updatedValues.borderColor;
     this.borderRadius = updatedValues.borderRadius;
-  }
-  /**
-   * Removes the selected Element as DOM Element. It will still exist as an Object,
-   * so you can recreate it with
-   */
-  removeElement() {
-    $(`#${this.id}`).remove();
-
-    return this;
   }
   /**
    * Parses a coordinate (X or Y) to check if you have used a shortcut.

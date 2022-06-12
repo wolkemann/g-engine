@@ -37,6 +37,9 @@ export default class Scenario extends Window {
     this.fullscreen = props.fullscreen;
     this.generateElement();
   }
+  /**
+   * Generates the Scenario as DOM Element.
+   */
   generateElement() {
     this.generateWindow();
 
