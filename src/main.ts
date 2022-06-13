@@ -27,8 +27,6 @@ const attore = new Actor({
   .animateWindow({}, {}, 0)
   .fadeImage({}, {}, 0);
 
-console.log(attore);
-
 const messaggio = new Message({
   id: "message",
   height: 200,
