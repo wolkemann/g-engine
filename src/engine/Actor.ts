@@ -19,14 +19,12 @@ export default class Actor extends Window {
    */
   constructor(props: ActorProps) {
     super({
+      x: 20,
+      y: 20,
+      width: 250,
+      height: 280,
+      ...props,
       id: "actor-" + props.id,
-      x: props.x ? props.x : 20,
-      y: props.y ? props.y : 20,
-      width: props.width ? props.width : 250,
-      height: props.height ? props.height : 280,
-      borderSize: props.borderSize ? props.borderSize : undefined,
-      borderColor: props.borderColor ? props.borderColor : undefined,
-      borderRadius: props.borderRadius ? props.borderRadius : undefined,
     });
 
     this.face = "../build/resources/faces/" + props.face;

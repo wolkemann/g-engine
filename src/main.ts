@@ -20,11 +20,14 @@ const scenario = new Scenario({
 const attore = new Actor({
   id: "lana",
   face: "lana.png",
-  opacity: 0,
   x: "center",
   y: "center",
   borderColor: "aquamarine",
-}).fadeImage({}, {}, 0);
+})
+  .animateWindow({}, {}, 0)
+  .fadeImage({}, {}, 0);
+
+console.log(attore);
 
 const messaggio = new Message({
   id: "message",

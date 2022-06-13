@@ -77,7 +77,7 @@ export default class Window {
     this.backgroundColor = props.backgroundColor
       ? props.backgroundColor
       : "black";
-    this.opacity = props.opacity ? props.opacity : 1;
+    this.opacity = !props.opacity ? 0 : props.opacity;
     this.borderSize = props.borderSize ? props.borderSize : 3;
     this.borderColor = props.borderColor ? props.borderColor : "#CC0000";
     this.borderRadius = props.borderRadius ? props.borderRadius : 2;
